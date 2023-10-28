@@ -28,9 +28,28 @@ function addEdge(){
     let indexFrom, indexTo;
     let from = document.getElementById('fromInput');
     let to = document.getElementById('toInput');
-
+//toma valores y valida exitencia de nodos
 indexFrom = from.value;
 indexTo = to.value;
+
+let isValidFrom = false;
+let isValidTo = false;
+nodes.forEach(function(node){
+
+    if(node.id == indexFrom){
+        isValidFrom = true;
+    }
+
+    if(node.id == indexTo){
+        isValidTo = true;
+    }
+    
+})
+
+if(!isValidFrom || !isValidTo){
+    alert('Arista invalida');
+    return false;
+}
 
 //agrega valor
     edges.add({id: indexEdge , from: indexFrom, to: indexTo});
@@ -41,22 +60,22 @@ to.value = '';
 
 }
 
-//función para crear estructura inicial de grafos
-function initGraphs(){
+// //función para crear estructura inicial de grafos
+// function initGraphs(){
 
-    // referencia objeto
-    let container = document.getElementById('mynetwork');
+//     // referencia objeto
+//     let container = document.getElementById('mynetwork');
 
-    // asigna data
-    let data = {
-        nodes: nodes,
-        edges: edges
-    };
-    let options = {};
+//     // asigna data
+//     let data = {
+//         nodes: nodes,
+//         edges: edges
+//     };
+//     let options = {};
 
-    // inicia
-    var network = new vis.Network(container, data, options);  
-}
+//     // inicia
+//     var network = new vis.Network(container, data, options);  
+// }
 //------------------------------------------grafos--------------------------------------------
 
 function math2 (){
@@ -113,18 +132,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //cambios iniciales para sección 1
     //agrega evento a boton para crear nodo
-    let btnNode = document.getElementById('newNode');;
-    if (btnNode != null && typeof(btnNode)!='undefined' && btnNode!=""){
-        btnNode.addEventListener('click', (e) => {
-            addNewNode(); 
-        });
-    }
-    let btnV = document.getElementById('newV');;
-    if (btnV != null && typeof(btnV)!='undefined' && btnV!=""){
-        btnV.addEventListener('click', (e) => {
-            addEdge(); 
-        });
-    }
+    // let btnNode = document.getElementById('newNode');;
+    // if (btnNode != null && typeof(btnNode)!='undefined' && btnNode!=""){
+    //     btnNode.addEventListener('click', (e) => {
+    //         addNewNode(); 
+    //     });
+    // }
+    // let btnV = document.getElementById('newV');;
+    // if (btnV != null && typeof(btnV)!='undefined' && btnV!=""){
+    //     btnV.addEventListener('click', (e) => {
+    //         addEdge(); 
+    //     });
+    // }
     //define la estructura de grafos
     initGraphs();
         
