@@ -152,7 +152,7 @@
                     <a href="#section2" class="mdl-tabs__tab">Conjuntos</a>
                     <a href="#section3" class="mdl-tabs__tab">Permutaciones</a>
                     <a href="#section4" class="mdl-tabs__tab">MCD</a>
-                    <a href="#section5" class="mdl-tabs__tab"></a>
+                    <a href="#section5" class="mdl-tabs__tab">Regla del producto</a>
                 </div>
 
                 <div id="section1" class="mdl-tabs__panel is-active">
@@ -163,7 +163,13 @@
                                 <td colspan="3"> Permite ejemplificar los vertices y relación de los grafos</td>
                             </tr>
                             <tr>
-                                <td></td>
+                                <td>
+                                    <form action="#">
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                            <input class="mdl-textfield__input" type="text" id="vnResult">
+                                        </div>
+                                    </form>
+                                </td>
                                 <td>
                                     <form action="#">
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -303,7 +309,29 @@
 
                 </div>
                 <div id="section5" class="mdl-tabs__panel">
-                    Contenido de la Opción 5
+                    <form action="#">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="value1">
+                            <label class="mdl-textfield__label" for="value1">Ingrese el primer valor</label>
+                            <span class="mdl-textfield__error">Ingrese valor numérico</span>
+                        </div>
+                    </form>
+                    <form action="#">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="value2">
+                            <label class="mdl-textfield__label" for="value2">Ingrese el segundo valor</label>
+                            <span class="mdl-textfield__error">Ingrese valor numérico</span>
+                        </div>
+                    </form>
+                    <br>
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+                        onclick="getProduct()">Calculo de regla del producto</button>
+                    <br>
+                    <form action="#">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="text" id="valueResult">
+                        </div>
+                    </form>
                 </div>
 
             </div>
@@ -317,7 +345,7 @@
                         <span> Cristopher Isai Contreras Salazar -0910-23-11334</span><br>
                         <span> Justin David Estrada Bran - 0910-23-17276</span><br>
                         <span> Julio alexander Colorado Tecun - 0910-22-12959</span><br>
-                        <span> Integrante</span>
+                        <span> Daniel Alfonso Caxaj Garcia - 9010-22-6682</span>
                     </div>
                 </div>
 

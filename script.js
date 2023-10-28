@@ -17,6 +17,8 @@ function addNewNode (){
     //agrega valor
     let indexNode = nodes.length +1 ;
     nodes.add({id: indexNode , label: 'Nodo ' + indexNode});
+
+    getResult();
     
 }
 //función para crear arista
@@ -55,12 +57,20 @@ function addEdge(){
     //limpia
     from.value = '';
     to.value = '';
+
+    getResult();
 }
 
 //función para limpiar
 function clearEdge(){
     edges.clear();
     nodes.clear();
+
+    getResult();
+}
+
+function getResult(){
+    document.getElementById('vnResult').value = 'Vertices: ' + nodes.length + ' Aristas:' + edges.length ;
 }
 
 //función para crear estructura inicial de grafos
@@ -138,6 +148,22 @@ function math2 (){
 }
 
 //------------------------------------------conjuntos--------------------------------------------
+
+//------------------------------------------regla del producto--------------------------------------------
+function getProduct(){
+
+    let resultP = 0;
+
+    let v1 =  parseFloat(document.getElementById('value1').value);
+    let v2 = parseFloat(document.getElementById('value2').value);
+
+    resultP = v1 * v2;
+
+    document.getElementById('valueResult').value = resultP;
+
+}
+
+//------------------------------------------regla del producto--------------------------------------------
 
 //------------------------------------------permutación--------------------------------------------
 function getPermutation(){
