@@ -1,5 +1,4 @@
 //agregar código para su función
-
 //variables iniciales de grafos
 //------------------------------------------grafos--------------------------------------------
 //Función para crear un grafo FC
@@ -11,7 +10,6 @@ let nodes = new vis.DataSet([
 // crea arrays de aristas
 let edges = new vis.DataSet([
 ]);
-//{from: 1, to: 3}
 
 //función para crear nodo
 function addNewNode (){
@@ -28,36 +26,35 @@ function addEdge(){
     let indexFrom, indexTo;
     let from = document.getElementById('fromInput');
     let to = document.getElementById('toInput');
-//toma valores y valida exitencia de nodos
-indexFrom = from.value;
-indexTo = to.value;
+    //toma valores y valida exitencia de nodos
+    indexFrom = from.value;
+    indexTo = to.value;
 
-let isValidFrom = false;
-let isValidTo = false;
-nodes.forEach(function(node){
+    let isValidFrom = false;
+    let isValidTo = false;
+    nodes.forEach(function(node){
 
-    if(node.id == indexFrom){
-        isValidFrom = true;
+        if(node.id == indexFrom){
+            isValidFrom = true;
+        }
+
+        if(node.id == indexTo){
+            isValidTo = true;
+        }
+        
+    })
+
+    if(!isValidFrom || !isValidTo){
+        alert('Arista invalida');
+        return false;
     }
 
-    if(node.id == indexTo){
-        isValidTo = true;
-    }
-    
-})
-
-if(!isValidFrom || !isValidTo){
-    alert('Arista invalida');
-    return false;
-}
-
-//agrega valor
+    //agrega valor
     edges.add({id: indexEdge , from: indexFrom, to: indexTo});
-    
-//limpia
-from.value = '';
-to.value = '';
-
+        
+    //limpia
+    from.value = '';
+    to.value = '';
 }
 
 //función para crear estructura inicial de grafos
