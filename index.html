@@ -112,6 +112,28 @@
         }
 
         /*----------------------conjunto------------------------------*/
+        /*----------------------MCD------------------------------*/
+        .power {
+            vertical-align: Super;
+            font-size: 10px;
+        }
+
+        .formula {
+            text-align: center;
+            border: 1px dotted gray;
+        }
+
+        input {
+            width: 90px;
+            margin-bottom: 2xp;
+            text-align: right;
+        }
+
+        .input1 {
+            margin-left: 10.5px;
+        }
+
+        /*----------------------MCD------------------------------*/
     </style>
 </head>
 
@@ -129,8 +151,8 @@
                     <a href="#section1" class="mdl-tabs__tab is-active">Grafos</a>
                     <a href="#section2" class="mdl-tabs__tab">Conjuntos</a>
                     <a href="#section3" class="mdl-tabs__tab">Permutaciones</a>
-                    <a href="#section3" class="mdl-tabs__tab">Tab 4</a>
-                    <a href="#section3" class="mdl-tabs__tab">Tab 5</a>
+                    <a href="#section4" class="mdl-tabs__tab">MCD</a>
+                    <a href="#section5" class="mdl-tabs__tab"></a>
                 </div>
 
                 <div id="section1" class="mdl-tabs__panel is-active">
@@ -249,7 +271,30 @@
                     </form>
                 </div>
                 <div id="section4" class="mdl-tabs__panel">
-                    Contenido de la Opción 4
+                    <p class="formula">
+                        El MAXIMO COMUN DIVISOR
+                    </p>
+                    <p>
+                        El entrero mas grande (Maximo) que puede dividir los numeros dejando dejando un resto igual a
+                        cero
+                    </p>
+                    <hr />
+                    <div id="salida">
+                        <p id="texto salida" style="padding-left: 10px;"></p>
+                    </div>
+                    <hr />
+
+                    <label for="input-num1">Ingrese el primer numero
+                        <input type="text" id="input-num1" class="input1">
+                    </label> <br />
+                    <label for="input-num2">Ingrese el Segundo numero
+                        <input type="text" id="input-num2">
+                    </label>
+
+                    <br />
+
+                    <button onclick="encontrarMCD()">encontrarMCD</button>
+
                 </div>
                 <div id="section5" class="mdl-tabs__panel">
                     Contenido de la Opción 5
@@ -265,7 +310,7 @@
                         <span> Walter Fernando Canú Cocón - 0910-09-12613</span> <br>
                         <span> Cristopher Isai Contreras Salazar -0910-23-11334</span><br>
                         <span> Justin David Estrada Bran - 0910-23-17276</span><br>
-                        <span> Integrante</span><br>
+                        <span> Julio alexander Colorado Tecun - 0910-22-12959</span><br>
                         <span> Integrante</span>
                     </div>
                 </div>

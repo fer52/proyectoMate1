@@ -155,6 +155,22 @@ function math3 (){
     console.log(3);
 }
 //------------------------------------------permutación--------------------------------------------
+//------------------------------------------mcd--------------------------------------------
+function encontrarMCD(){
+    let numero1 = parseInt(document.getElementById("input-num1").value);
+    let numero2 = parseInt(document.getElementById("input-num2").value);
+    let mcd = 0;
+
+    for(let a = 1; a <= numero1 && a <= numero2; a++){
+        if(numero1 % a == 0 && numero2 % a == 0){
+            mcd = a;
+        }
+    }
+    
+    document.getElementById("texto salida").innerHTML =
+    `El Maximo Comun Divisor de ${numero1}  y ${numero2} es: ${mcd}`;
+}
+//------------------------------------------mcd--------------------------------------------
 function math4 (){
     console.log(4);
 }
