@@ -5,13 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css"> -->
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
+
+    <!-- <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script> -->
+    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js">
+    </script>
+
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+
     <script defer src="script.js"></script>
+
     <title>Proyecto de Matematica Discreta</title>
     <style>
         .page-content {
             display: none;
+        }
+
+        #mynetwork {
+            width: 100%;
+            height: 700px;
+            border: 1px solid lightgray;
+        }
+
+        .centerBl {
+            height: 75%;
         }
     </style>
 </head>
@@ -24,45 +42,89 @@
             </div>
         </header>
 
-        <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title">Navegación</span>
-            <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="#section1">Opción 1</a>
-                <a class="mdl-navigation__link" href="#section2">Opción 2</a>
-                <a class="mdl-navigation__link" href="#section3">Opción 3</a>
-                <a class="mdl-navigation__link" href="#section4">Opción 4</a>
-                <a class="mdl-navigation__link" href="#section5">Opción 5</a>
-            </nav>
-        </div>
+        <main class="mdl-layout__content centerBl">
+            <div class="mdl-tabs mdl-js-tabs">
+                <div class="mdl-tabs__tab-bar">
+                    <a href="#section1" class="mdl-tabs__tab is-active">Grafos</a>
+                    <a href="#section2" class="mdl-tabs__tab">Tab 2</a>
+                    <a href="#section3" class="mdl-tabs__tab">Tab 3</a>
+                    <a href="#section3" class="mdl-tabs__tab">Tab 4</a>
+                    <a href="#section3" class="mdl-tabs__tab">Tab 5</a>
+                </div>
 
-        <main class="mdl-layout__content">
-            <section id="section1" class="page-content">
-                <div class="page-content-inner">
-                    Contenido de la Opción 1
+                <div id="section1" class="mdl-tabs__panel is-active">
+                    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <form action="#">
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                            <input class="mdl-textfield__input" type="text" id="fromInput">
+                                            <label class="mdl-textfield__label" for="fromInput">Desde...</label>
+                                        </div>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="#">
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                            <input class="mdl-textfield__input" type="text" id="toInput">
+                                            <label class="mdl-textfield__label" for="toInput">A...</label>
+                                        </div>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><button id="newNode"
+                                        class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                                        Crear Vertice/Nodo
+                                    </button></td>
+                                <td colspan="2"><button
+                                        class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                                        Agregar Aristas
+                                    </button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                    <div id="mynetwork"></div>
                 </div>
-            </section>
-            <section id="section2" class="page-content">
-                <div class="page-content-inner">
+                <div id="section2" class="mdl-tabs__panel">
                     Contenido de la Opción 2
+                    sdf
                 </div>
-            </section>
-            <section id="section3" class="page-content">
-                <div class="page-content-inner">
+                <div id="section3" class="mdl-tabs__panel">
                     Contenido de la Opción 3
                 </div>
-            </section>
-            <section id="section4" class="page-content">
-                <div class="page-content-inner">
+                <div id="section4" class="mdl-tabs__panel">
                     Contenido de la Opción 4
                 </div>
-            </section>
-            <section id="section5" class="page-content">
-                <div class="page-content-inner">
+                <div id="section5" class="mdl-tabs__panel">
                     Contenido de la Opción 5
                 </div>
-            </section>
+
+            </div>
         </main>
+
+        <main class="mdl-layout__content">
+            <footer class="mdl-mega-footer">
+                <div class="mdl-mega-footer__top-section">
+                    <div class="mdl-mega-footer__left-section">
+                        <span> Walter Fernando Canú Cocón - 0910-09-12613</span> <br>
+                        <span> Integrante</span><br>
+                        <span> Integrante</span><br>
+                        <span> Integrante</span><br>
+                        <span> Integrante</span>
+                    </div>
+                </div>
+
+            </footer>
+        </main>
+
     </div>
+
 
     <script>
 
