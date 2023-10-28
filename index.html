@@ -61,16 +61,20 @@
                                 <td>
                                     <form action="#">
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <input class="mdl-textfield__input" type="text" id="fromInput">
+                                            <input class="mdl-textfield__input" type="text"
+                                                pattern="-?[0-9]*(\.[0-9]+)?" id="fromInput">
                                             <label class="mdl-textfield__label" for="fromInput">Desde...</label>
+                                            <span class="mdl-textfield__error">Ingrese valor numérico</span>
                                         </div>
                                     </form>
                                 </td>
                                 <td>
                                     <form action="#">
                                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                            <input class="mdl-textfield__input" type="text" id="toInput">
+                                            <input class="mdl-textfield__input" type="text"
+                                                pattern="-?[0-9]*(\.[0-9]+)?" id="toInput">
                                             <label class="mdl-textfield__label" for="toInput">A...</label>
+                                            <span class="mdl-textfield__error">Ingrese valor numérico</span>
                                         </div>
                                     </form>
                                 </td>
@@ -80,7 +84,7 @@
                                         class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
                                         Crear Vertice/Nodo
                                     </button></td>
-                                <td colspan="2"><button
+                                <td colspan="2"><button id="newV"
                                         class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
                                         Agregar Aristas
                                     </button></td>

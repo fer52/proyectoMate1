@@ -1,38 +1,64 @@
 //agregar código para su función
 
+//variables iniciales de grafos
+//------------------------------------------grafos--------------------------------------------
 //Función para crear un grafo FC
-function math1 (){
-    // create an array with nodes
-    var nodes = new vis.DataSet([
-        {id: 1, label: 'Node 1'},
-        {id: 2, label: 'Node 2'},
-        {id: 3, label: 'Node 3'},
-        {id: 4, label: 'Node 4'},
-        {id: 5, label: 'Node 5'}
-    ]);
+// crea array de nodos
+let nodes = new vis.DataSet([
+    {id: 1, label: 'Nodo 1'}
+]);
 
-    // create an array with edges
-    var edges = new vis.DataSet([
-        {from: 1, to: 3},
-        {from: 1, to: 2},
-        {from: 2, to: 4},
-        {from: 2, to: 5}
-    ]);
+// crea arrays de aristas
+let edges = new vis.DataSet([
+]);
+//{from: 1, to: 3}
 
-    // create a network
-    var container = document.getElementById('mynetwork');
+//función para crear nodo
+function addNewNode (){
 
-    // provide the data in the vis format
-    var data = {
+    //agrega valor
+    let indexNode = nodes.length +1 ;
+    nodes.add({id: indexNode , label: 'Nodo ' + indexNode});
+    
+}
+//función para crear arista
+function addEdge(){
+
+    let indexEdge = edges.length +1 ;
+    let indexFrom, indexTo;
+    let from = document.getElementById('fromInput');
+    let to = document.getElementById('toInput');
+
+indexFrom = from.value;
+indexTo = to.value;
+
+//agrega valor
+    edges.add({id: indexEdge , from: indexFrom, to: indexTo});
+    
+//limpia
+from.value = '';
+to.value = '';
+
+}
+
+//función para crear estructura inicial de grafos
+function initGraphs(){
+
+    // referencia objeto
+    let container = document.getElementById('mynetwork');
+
+    // asigna data
+    let data = {
         nodes: nodes,
         edges: edges
     };
-    var options = {};
+    let options = {};
 
-    // initialize your network!
-    var network = new vis.Network(container, data, options);
-    
+    // inicia
+    var network = new vis.Network(container, data, options);  
 }
+//------------------------------------------grafos--------------------------------------------
+
 function math2 (){
     console.log(2);
 }
@@ -85,13 +111,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // changeContent('section1');
 
 
+    //cambios iniciales para sección 1
     //agrega evento a boton para crear nodo
-    let btnNode = document.querySelector('#newNode');;
+    let btnNode = document.getElementById('newNode');;
     if (btnNode != null && typeof(btnNode)!='undefined' && btnNode!=""){
         btnNode.addEventListener('click', (e) => {
-           math1(); 
+            addNewNode(); 
         });
     }
+    let btnV = document.getElementById('newV');;
+    if (btnV != null && typeof(btnV)!='undefined' && btnV!=""){
+        btnV.addEventListener('click', (e) => {
+            addEdge(); 
+        });
+    }
+    //define la estructura de grafos
+    initGraphs();
         
 });
 
