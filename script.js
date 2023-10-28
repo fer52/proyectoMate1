@@ -133,9 +133,28 @@ function math2 (){
 
 //------------------------------------------conjuntos--------------------------------------------
 
+//------------------------------------------permutación--------------------------------------------
+function getPermutation(){
+    let permuta = parseInt(document.getElementById('setElement').value);
+    let permuto = parseInt(document.getElementById('setGroups').value)
+
+    let nF = factorial(permuta);
+    let nkf = factorial(permuta - permuto);
+    
+    let resultP =  nF / nkf;
+
+    document.getElementById('setResult').value = resultP;
+
+}
+
+function factorial(n){
+    return (n == 0) ? 1 : n * factorial(n-1);
+}
+
 function math3 (){
     console.log(3);
 }
+//------------------------------------------permutación--------------------------------------------
 function math4 (){
     console.log(4);
 }
@@ -184,13 +203,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //cambios iniciales para sección 1
     //agrega evento a boton para crear nodo
-    let btnNode = document.getElementById('newNode');;
+    let btnNode = document.getElementById('newNode');
     if (btnNode != null && typeof(btnNode)!='undefined' && btnNode!=""){
         btnNode.addEventListener('click', (e) => {
             addNewNode(); 
         });
     }
-    let btnV = document.getElementById('newV');;
+    let btnV = document.getElementById('newV');
     if (btnV != null && typeof(btnV)!='undefined' && btnV!=""){
         btnV.addEventListener('click', (e) => {
             addEdge(); 
@@ -199,6 +218,12 @@ document.addEventListener('DOMContentLoaded', () => {
     //define la estructura de grafos
     initGraphs();
         
+
+    //asigna llamado para permutacion
+    let btnPermutation = document.getElementById('btnPermutation');
+    btnPermutation.addEventListener('click', (e) => {
+        getPermutation(); 
+    });
 });
 
 
