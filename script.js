@@ -57,6 +57,12 @@ function addEdge(){
     to.value = '';
 }
 
+//función para limpiar
+function clearEdge(){
+    edges.clear();
+    nodes.clear();
+}
+
 //función para crear estructura inicial de grafos
 function initGraphs(){
 
@@ -229,6 +235,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnV != null && typeof(btnV)!='undefined' && btnV!=""){
         btnV.addEventListener('click', (e) => {
             addEdge(); 
+        });
+    }
+    let clearBn = document.getElementById('clearBn');
+    if (clearBn != null && typeof(clearBn)!='undefined' && clearBn!=""){
+        clearBn.addEventListener('click', (e) => {
+            clearEdge(); 
         });
     }
     //define la estructura de grafos
