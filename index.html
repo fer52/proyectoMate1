@@ -18,6 +18,7 @@
 
     <title>Proyecto de Matematica Discreta</title>
     <style>
+        /*----------------------grafos------------------------------*/
         .page-content {
             display: none;
         }
@@ -31,6 +32,86 @@
         .centerBl {
             height: 75%;
         }
+
+        /*----------------------grafos------------------------------*/
+
+        /*----------------------conjunto------------------------------*/
+        /* #section2 {
+            background-image: url(https://static.vecteezy.com/system/resources/previews/001/931/120/large_2x/dark-blue-gradient-blur-texture-vector.jpg);
+        } */
+
+
+        .venn-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+
+        .venn-diagram {
+            width: 225px;
+            height: 200px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .venn-circle {
+            width: 175px;
+            height: 175px;
+            border-radius: 50%;
+            background-color: #3498db;
+            /* Color del círculo */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Agrega estilos para el botón "Calcular" */
+        form input[type="submit"] {
+            background-color: #41b4e9;
+            /* Cambia el color de fondo del botón */
+            color: #fff;
+            /* Cambia el color del texto del botón a blanco */
+            border: none;
+            /* Elimina el borde */
+            border-radius: 5px;
+            /* Agrega bordes redondeados */
+            padding: 10px 20px;
+            /* Añade espacio alrededor del texto */
+            cursor: pointer;
+            /* Cambia el cursor al pasar el mouse sobre el botón */
+        }
+
+        /* Agrega un estilo al botón calcular*/
+        form input[type="submit"]:hover {
+            background-color: #219251;
+            /* Cambia el color de fondo al pasar el mouse */
+        }
+
+        /* Color para el botón borrar */
+        #clearButton {
+            background-color: #4779e4;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            /* bordes redondeados */
+            padding: 10px 20px;
+            /* Añade espacio alrededor del texto */
+            cursor: pointer;
+            /* Cambia el cursor al pasar el mouse sobre el botón */
+        }
+
+        /* Agrega un estilo al botón al pasar el mouse sobre él */
+        #clearButton:hover {
+            background-color: #c0392b;
+            /* Cambia el color de fondo al pasar el mouse */
+        }
+
+        /*----------------------conjunto------------------------------*/
     </style>
 </head>
 
@@ -46,8 +127,8 @@
             <div class="mdl-tabs mdl-js-tabs">
                 <div class="mdl-tabs__tab-bar">
                     <a href="#section1" class="mdl-tabs__tab is-active">Grafos</a>
-                    <a href="#section2" class="mdl-tabs__tab">Tab 2</a>
-                    <a href="#section3" class="mdl-tabs__tab">Tab 3</a>
+                    <a href="#section2" class="mdl-tabs__tab">Conjuntos</a>
+                    <a href="#section3" class="mdl-tabs__tab">Permutaciones</a>
                     <a href="#section3" class="mdl-tabs__tab">Tab 4</a>
                     <a href="#section3" class="mdl-tabs__tab">Tab 5</a>
                 </div>
@@ -96,8 +177,45 @@
                     <div id="mynetwork"></div>
                 </div>
                 <div id="section2" class="mdl-tabs__panel">
-                    Contenido de la Opción 2
-                    sdf
+                    <p>Este programa calcula la unión y la intersección de dos conjuntos.</p> <br>
+                    <br>
+                    <form>
+                        <!-- <label for="set1">Conjunto 1:</label>
+                        <input type="text" id="set1" name="set1"> -->
+                        <form action="#">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="text" id="set1">
+                                <label class="mdl-textfield__label" for="set1">Conjunto 1:</label>
+                            </div>
+                        </form>
+                        <br>
+                        <br>
+                        <!-- <label for="set2">Conjunto 2:</label>
+                        <input type="text" id="set2" name="set2"> -->
+                        <form action="#">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="text" id="set2">
+                                <label class="mdl-textfield__label" for="set2">Conjunto 2:</label>
+                            </div>
+                        </form>
+                        <br>
+                        <!-- <input type="submit" value="Calcular"> -->
+                        <button id="dataC">Calcular</button>
+                    </form>
+
+                    <div class="venn-container">
+                        <div class="venn-diagram">
+                            <div class="venn-circle" id="venn-union"></div>
+                            Unión
+                        </div>
+                        <div class="venn-diagram">
+                            <div class="venn-circle" id="venn-intersection"></div>
+                            Intersección
+                        </div>
+                    </div>
+                    <div id="result"></div> <br>
+                    <button id="clearButton">Borrar Resultados</button>
+
                 </div>
                 <div id="section3" class="mdl-tabs__panel">
                     Contenido de la Opción 3

@@ -60,27 +60,82 @@ to.value = '';
 
 }
 
-// //función para crear estructura inicial de grafos
-// function initGraphs(){
+//función para crear estructura inicial de grafos
+function initGraphs(){
 
-//     // referencia objeto
-//     let container = document.getElementById('mynetwork');
+    // referencia objeto
+    let container = document.getElementById('mynetwork');
 
-//     // asigna data
-//     let data = {
-//         nodes: nodes,
-//         edges: edges
-//     };
-//     let options = {};
+    // asigna data
+    let data = {
+        nodes: nodes,
+        edges: edges
+    };
+    let options = {};
 
-//     // inicia
-//     var network = new vis.Network(container, data, options);  
-// }
+    // inicia
+    var network = new vis.Network(container, data, options);  
+}
 //------------------------------------------grafos--------------------------------------------
+
+//------------------------------------------conjuntos--------------------------------------------
+const form = document.querySelector('form');
+  const result = document.querySelector('#result');
+  const clearButton = document.querySelector('#clearButton');
+  const dataButton = document.querySelector('#dataC');
+
+  dataButton.addEventListener('click', () => {
+    event.preventDefault();
+    const set1 = new Set(document.getElementById('set1').value.split(', '));
+    const set2 = new Set(document.getElementById('set2').value.split(', '));
+    const union = new Set([...set1, ...set2]);
+    const intersection = new Set([...set1].filter(x => set2.has(x)));
+    result.innerHTML = `Unión: ${Array.from(union).join(', ')}<br>Intersección: ${Array.from(intersection).join(', ')}`;
+
+    // Borrar elementos de los circulos
+    const vennUnion = document.querySelector('#venn-union');
+    const vennIntersection = document.querySelector('#venn-intersection');
+
+    vennUnion.textContent = Array.from(union).join(', ');
+    vennIntersection.textContent = Array.from(intersection).join(', ');
+  })
+
+// form.addEventListener('click', (event) => {
+//     event.preventDefault();
+//     const set1 = new Set(form.querySelector('#set1').value.split(', '));
+//     const set2 = new Set(form.querySelector('#set2').value.split(', '));
+//     const union = new Set([...set1, ...set2]);
+//     const intersection = new Set([...set1].filter(x => set2.has(x)));
+//     result.innerHTML = `Unión: ${Array.from(union).join(', ')}<br>Intersección: ${Array.from(intersection).join(', ')}`;
+
+//     // Borrar elementos de los circulos
+//     const vennUnion = document.querySelector('#venn-union');
+//     const vennIntersection = document.querySelector('#venn-intersection');
+
+//     vennUnion.textContent = Array.from(union).join(', ');
+//     vennIntersection.textContent = Array.from(intersection).join(', ');
+//   });
+
+  clearButton.addEventListener('click', () => {
+    result.innerHTML = ''; // Borra el contenido de #result
+
+    // Restaurar el contenido de los círculos del diagrama de Venn
+    const vennUnion = document.querySelector('#venn-union');
+    const vennIntersection = document.querySelector('#venn-intersection');
+
+    vennUnion.textContent = '';
+    vennIntersection.textContent = '';
+    document.getElementById('set1').value= '';
+    document.getElementById('set2').value = '';
+    
+  });
 
 function math2 (){
     console.log(2);
 }
+
+//------------------------------------------conjuntos--------------------------------------------
+
 function math3 (){
     console.log(3);
 }
@@ -132,18 +187,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //cambios iniciales para sección 1
     //agrega evento a boton para crear nodo
-    // let btnNode = document.getElementById('newNode');;
-    // if (btnNode != null && typeof(btnNode)!='undefined' && btnNode!=""){
-    //     btnNode.addEventListener('click', (e) => {
-    //         addNewNode(); 
-    //     });
-    // }
-    // let btnV = document.getElementById('newV');;
-    // if (btnV != null && typeof(btnV)!='undefined' && btnV!=""){
-    //     btnV.addEventListener('click', (e) => {
-    //         addEdge(); 
-    //     });
-    // }
+    let btnNode = document.getElementById('newNode');;
+    if (btnNode != null && typeof(btnNode)!='undefined' && btnNode!=""){
+        btnNode.addEventListener('click', (e) => {
+            addNewNode(); 
+        });
+    }
+    let btnV = document.getElementById('newV');;
+    if (btnV != null && typeof(btnV)!='undefined' && btnV!=""){
+        btnV.addEventListener('click', (e) => {
+            addEdge(); 
+        });
+    }
     //define la estructura de grafos
     initGraphs();
         
